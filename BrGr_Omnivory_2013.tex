@@ -1,0 +1,675 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage{sectsty,setspace,natbib,wasysym} 
+\usepackage[top=1.00in, bottom=1.0in, left=1in, right=1.25in]{geometry} 
+\usepackage{graphicx}
+\usepackage{latexsym,amssymb,epsf} 
+\usepackage{epstopdf}
+\usepackage{exceltex}
+\usepackage{lineno}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{natbib}
+
+
+\parskip=5pt
+\pagenumbering{arabic}
+\pagestyle{plain}
+ 
+\newcommand{\Section}[1]{\vspace{-8pt}\section{\hskip -1em.~~#1}\vspace{-3pt}} 
+%\usepackage{ametsoc}
+
+\begin{document}
+{ \noindent \bf Linking the green and brown worlds: The prevalence and
+ effect of multi-channel feeding in food webs}\\
+\\
+\noindent {\bf Authors:} \\
+\noindent Elizabeth M. Wolkovich\(^{1,2,3*}\), Stefano Allesina\(^{4}\), Kathryn
+L. Cottingham\(^{3}\), John C. Moore\(^{5,6}\), Stuart A. Sandin\(^{7}\) and Claire de
+Mazancourt\(^{8}\)\\
+\\
+\noindent \(^{1}\) University of British Columbia, 6270 University Blvd., Vancouver, BC, V6K 1TZ, Canada (\emph{lizzie@biodiversity.ubc.ca})\\
+\noindent \(^{2}\) University of California, San Diego, 9500 Gillman
+Drive \#0116, La Jolla, CA 92093 USA\\
+\noindent \(^{3}\) Dartmouth College, Department of Biological
+Sciences, 6044 Gilman, Hanover NH 03602,
+USA (\emph{kathryn.cottingham@dartmouth.edu})\\
+\noindent \(^{4}\) University of Chicago, Department of Ecology \&
+Evolution, Computation Institute, Chicago, IL 60637 USA (\emph{sallesina@uchicago.edu})\\ 
+\noindent \(^{5}\) Colorado State University, National Resource Ecological Laboratory, Fort
+Collins, CO 80523 USA \newline
+(\emph{jcmoore@nrel.colostate.edu})\\ 
+\noindent \(^{6}\) Colorado State University, Department of Ecosystem Science and Sustainability, Fort Collins, CO 80523\\
+\noindent \(^{7}\) Scripps Institution of Oceanography, University of
+California - San Diego, 9500 Gilman Drive, La Jolla, CA 92093 USA
+(\emph{ssandin@ucsd.edu}) \\
+\noindent \(^{8}\) Centre for Biodiversity Theory and Modelling, Station d'Ecologie Exp\'{e}rimentale du CNRS, 09200 Moulis, France 
+(\emph{claire.demazancourt@ecoex-moulis.cnrs.fr})\\
+\noindent * Corresponding author
+\\
+
+\noindent Prepared as an {\bf article} for \emph{American
+ Naturalist}\\
+
+\noindent {\bf Keywords:} food webs, stability, detritus, attack
+rates, multi-channel\\
+
+\noindent {\bf Supplements for online only:}\\
+\noindent \emph{Appendix A:} Complete list of empirical food webs used.\\
+\noindent \emph{Appendix B:} Effect of varying parameters used to
+estimate trophic level and diet. 
+\noindent \emph{Appendix C:} Expanded version of Table 1, including references. \\
+
+ 
+
+\pagebreak
+\linenumbers
+\modulolinenumbers[2]
+
+\noindent {\bf Abstract}\\
+\noindent (At 199 words, of a 200 word limit): Recent advances in food web ecology highlight that most real food webs (1) represent an interplay between producer and detritus-based webs and, (2) are governed by consumers which are rampant omnivores. A possible avenue to unify these advances comes from models demonstrating that predators feeding on distinctly
+different channels may stabilize food webs. Empirical studies suggest many consumers engage in such behavior by feeding on prey items from both living-autotroph (green) and
+detritus-based (brown) webs---what we here term `multi-channel feeding'---but we know little about how common such feeding is across systems and trophic levels and its effect on system stability. Considering 23 empirical webs, multi-channel feeding
+is equally common across terrestrial, freshwater and marine systems and occurs most often
+among primary consumers.  We next
+developed a simple four-compartment nutrient cycling model for consumers
+eating autotrophs and detritus, which showed that---across terrestrial and aquatic ecosystems---multi-channel feeding is
+destabilizing at high attack rates on autotrophs, but
+stabilizing at low attack rates on autotrophs, compared to herbivory- or detritivory-only models. Together our results demonstrate that multi-channel feeding is common across ecosystems and may be a
+stabilizing force in real webs that have consumers with asymmetric attack rates.
+
+% Bring back if have more that 200 words someday:
+% [INSERT after -only models.] However, the set of conditions for stable webs with multi-channel consumers is narrower for aquatic systems.
+% [INSERT after rampant omnivores. ] ---feeding on varied prey across trophic levels and resource channels
+
+
+\pagebreak
+\noindent {\bf Introduction}\\
+\\
+\indent Reconciling the complexity of food webs with their apparent stability over time, and in response to disturbance, has driven a large body of research in theoretical community ecology \citep{Pimm:1982,Polis:1998}. Much of this work has used models of (living autotroph-based) grazing chains and webs \citep[the `green world,'][]{Hairston:1960kx} that include strong top-down control \citep{Pimm:1982,McCann:1997}. Such models have found many factors common in natural systems can destabilize systems \citep{Holt:1994,Tanabe:2005jc}. For example, feeding on multiple prey items (omnivory) in its many forms can be highly destabilizing \citep{Holt:1994}. In contrast, work focusing on detrital or `brown world' chains, often using aspects of donor-control, show comparatively consistent stability \citep{Moore:2004,Blanchard:2011}. Models linking green and brown webs have traditionally done so by incorporating nutrient cycling, where dead materials from the green chain transfer to a detrital pool, which  mineralize into nutrients that limit the basal autotrophs of the green chain \citep{DeAngelis:1992, DeAngelis:1989}. Empirical food web studies, however, underscore that nutrient cycling is not the only connection between grazing and detrital webs.
+\\
+\indent Multi-channel \citep{Odum:1969,Moore:1988,Polis:1996} or multi-chain \citep{Vadeboncoeur:2005} feeding, where consumers link distinct resource channels, has been noted for some time \citep{Odum:1984}. Many omnivores are actually
+multi-channel consumers that link grazing and
+detrital channels, including species such as scorpions
+\citep{Polis:1987}, predaceous nematodes and mesostigmatid mites \citep{Moore:1988}, wolf spiders \citep{Fagan:1997}, gizzard shad
+\citep{Nowlin:2008}, and rocky littoral fish species
+\citep{Pinnegar:2000}. In freshwater systems multi-channel consumers
+that link mainly autotroph-based pelagic webs with highly
+detritus-based benthic webs appear common and may drive trophic cascades
+\citep{Vadeboncoeur:2002,Vadeboncoeur:2005}. Similar links between grazing and detrital-based chains
+have been found in terrestrial soils \citep{Hunt:1987nw}, crop systems \citep{Settle:1996} and
+forests \citep{Miyashita:2003}.
+\\
+\indent Given its prevalence in many systems understanding how multi-channel feeding affects food web stability, especially in comparison to the more commonly-used models which have only grazing or detrital chains, may aid in explaining how complex natural food webs return to similar conditions following disturbance. Multi-channel consumers that link grazing and detrital resource channels may be especially
+important because they provide a unique way for detrital
+biomass to re-enter and affect the grazing web \citep{Polis:1996}. Such cross-chain feeding allows consumers to access detritus
+directly (by eating detritus) and/or indirectly (by feeding on lower consumers
+that are themselves detritivores or multi-channel consumers). This key link between
+predation and the resource pool critical to nutrient cycling may
+complicate the effect of multi-channel feeding on food web
+stability: while detritus is often stabilizing when included in simple
+food web models \citep{Moore:2004}, its role may change when predator
+dynamics with top-down control are linked to more than one resource \citep{Holt:1994}.
+\\
+\indent Here we examine the prevalence of multi-channel feeding in real systems, and its role in the stability of modeled food webs. First, we examine whether multi-channel feeding is prevalent within and across real systems, using 23 empirical food
+webs. Theoretical studies make mixed predictions regarding the
+prevalence of multi-channel feeding, particularly whether it is more common at
+higher versus lower trophic levels. Recent theory suggests that predators linking distinct energy
+sources should occur at higher trophic levels in food webs
+\citep{Rooney:2006} and should derive their energy equally
+across energy sources. However, earlier work suggested that distinct energy channels
+based on living-autotroph versus detrital resources basically
+break down after the first (basal) trophic level 
+\citep{Odum:1984,Moore:1988ar,Moore:1988} as taxa consume both
+living autotrophs and detritus. The sparse results to date are equivocal: in freshwater systems, the diets of
+pelagic fish vary strongly by species, with some species deriving less
+than 10\% of their diet from
+alternative energy channels and others consuming considerable amounts
+of benthic diet items \citep{Vander-Zanden:2002}. The empirical food web
+data used here however allows tests of the commonness or rarity of
+multi-channel feeding and its general trophic position in food webs across a wide array of ecosystem types. Next, we develop a simple food web model with nutrient
+recycling to assess whether multi-channel feeding is a stabilizing or destabilizing component of food webs, in comparison with grazing-only or detrital-only models.
+\\
+\\
+\noindent {\bf Prevalence of multi-channel feeding in real food webs}\\
+\\
+\emph{Methods}\\
+\\
+\indent We first examined data from real food webs to quantify study the prevalence and
+variation of multi-channel feeding across ecosystems and trophic levels.
+Described food webs are inherently simplified versions of all actual
+feeding relationships in a system and using such food webs to look for
+actual ecological trends requires care \citep{Dunne:2004,
+  Martinez:1991}. Here we attempted to control for possible bias by using the
+best data available and choosing webs that are have well-resolved feeding relationships derived from robust sampling \citep{Martinez:1999}; this yielded
+23 webs based on observation and gut content analysis. Total taxa per
+web ranged from 21 to 200 and all webs included both detrital and
+living autotroph taxa at the base. All webs gave links between
+predators and prey (binary link data) while 13 also reported estimates
+of the flows occurring between each resource and its
+consumers. We classified webs as terrestrial, freshwater, emergent
+vegetation (wetlands and mangroves)
+or marine based on their taxa. A complete list of the webs used, and
+their sources, is given in Appendix A.
+\\
+\indent We calculated estimates of the trophic level
+and diet specificity for each consumer taxon in each web. We computed the trophic
+level according to the flow
+information \citep{Levine:1980} when present. For binary food webs,
+we created a fractional diet matrix by assigning
+to each of the \(X\) consumers of a given resource the same fraction
+\(\varepsilon/X\) of the flow originating from the resource, where
+\(\varepsilon\) is the efficiency of transformation. Using this
+matrix, we then computed the trophic level as we did for the
+flow-based food webs. For the figures reported here, we chose
+\(\varepsilon=0.15\), but our analysis is not sensitive to the
+particular value chosen for the efficiency of transformation (Appendix
+B). For living autotrophs and detritus we
+assigned a trophic level of 1. We then calculated the percent of diet
+derived from detritus versus living autotrophs for each consumer on a scale
+of 0 to 1, with 0 representing a diet derived solely of detrital-based
+sources and 1 representing a completely green-web diet; this metric
+included diet flows from feeding directly on living
+autotrophs or detritus as well as diet flows from feeding on consumers
+which themselves feed on both channels. We
+operationally defined multi-channel consumers as taxa at or above the
+second trophic level with diets falling between 0.1 to 0.9 on this
+scale (results are not sensitive to this criterion, Appendix B). All
+other taxa were then defined as detritus, living plants, or 
+autotroph- or detritus-specialists depending on trophic level and
+diet. We then determined the percent of taxa in each category for each
+web, and tested for whether the prevalence of multi-channel consumers
+varied by system type (terrestrial, freshwater, marine, emergent
+vegetation) via a one-way ANOVA.
+\\
+\indent We then tested the prediction that consumers derive their food resources more
+equally from brown and green channels
+(i.e., are more omnivorous) as trophic level
+increases. Using our diet specificity index, we
+calculated the distance of 
+each consumer from equal consumption of brown and green resources as:
+\emph{Distance from equally-derived diet} \(= |Diet Index-0.5|\). Thus taxa
+that derive their energy equally from both channels would have
+a diet index of 0.5 and their distance from an equally-derived diet
+(diet-distance) would be 0. This metric allowed us to test for
+patterns in diet specialization
+with a mixed-effects ANOVA model that included a linear effect of
+trophic level, a fixed categorical variable for system type, 
+and a random effect for food web identity (accounting for the the non-independence of multiple taxa within each web). Because we had an
+incomplete set of systems within each
+web type (for flow data we had no terrestrial webs, and for binary data
+we had no emergent vegetation webs), we did not include web type
+(binary/flow) in the analyses. We explored alternative
+variance-covariance structures and error distributions
+\citep{Bolker:2009, Wolfinger:1996} 
+and selected a Gaussian distribution with
+autoregressive heterogenous variances based in
+Akaike's Information Criterion (AIC) and examination
+of residuals. 
+\\ 
+\indent We used R version 2.12.0 for all
+analyses \citep{Rcore:2010}, and report all summary statistics as mean ${\pm}$
+standard error unless otherwise noted.
+\\
+\\
+\emph{Results}\\
+\\
+\indent We found that multi-channel consumers were prevalent across all ecosystems
+(Figure 1), comprising 42.1 ${\pm}$ 5.3\% of taxa (53.5 ${\pm}$ 6.4\%
+of all consumers) and were far more
+prevalent than taxa feeding only on living
+autotrophs (16.8 ${\pm}$ 3.6\%) or detritus (17.5 ${\pm}$ 4.4\%). These
+trends were consistent across systems (one-way ANOVA:
+F_{3, 19}=1.42, p \(=\) 0.27).
+\\
+\indent Multi-channel consumers were more common at
+higher trophic levels (Figure 2, mixed-effects model, a linear effect
+of trophic level:
+F_{1, 1130 }= 45.0, p \(<\) 0.0001). This relationship did not vary
+by system type (F_{3, 1130 }= 1.17, p \(=\) 0.32), and system type
+alone did not explain diet (F_{3, 19}=
+0.77, p \(=\) 0.53). As predicted by \citet{Rooney:2006}, multi-channel consumers
+were the most common consumer type at the highest trophic levels: 63.6\% of taxa
+in trophic level 3 and above were multi-channel consumers consuming at
+least 10\% of each resource, as compared to 41.3\% of taxa between the
+second and third trophic level. However, when considering where the
+majority of multi-channel consumers occurred, we found that most
+occupied the first to second heterotrophic level: 58.6 ${\pm}$
+5.7\% of all multi-channel consumers occupied trophic levels 2-3, and
+nearly three-quarters of these taxa (74.7\%), occurred between trophic
+level 2 and 2.5.
+This suggests that most multi-channel consumers directly
+link basal detrital and autotroph channels. 
+\\
+\\
+\noindent {\bf Effect of multi-channel feeding on system stability}\\
+\\
+\emph{Methods}\\
+\\
+\indent Since nearly 60\% of all multi-channel consumers in our
+empirical food webs occupied
+trophic levels 2-3, we next evaluated how multi-channel feeding low in the food
+web affects system stability. We developed a four-compartment
+nutrient-recycling predator-prey model (Figure 3) that captured the three features we highlighted in the introduction---a compartmentalized multi-channel structure, primary producers and detritus as basal resources, and consumers (X)
+that have the ability to derive energy from both autotrophs (A) and detritus (D). We then linked these compartments to a
+plant-available nutrient pool (N). We used a nutrient recycling model because we wanted to evaluate the unique ability of multi-channel feeding to directly bring detrital-web nutrients into the grazing web, which would otherwise occur only via nutrient recycling from the detritus pool. 
+\\
+\indent In all model formulations autotrophs take up nutrients from a
+plant-available nutrient pool. The nutrient pool increases via external
+inputs and mineralization from the detrital pool. The detrital pool
+increases due to external inputs, sloppy feeding by herbivores and death
+from the autotroph and consumer pools. In the multi-channel feeding form of
+the model, the consumer feeds on both the autotroph and detrital pool with a Type II functional response
+following \cite{Chesson:1983}:
+
+\\
+\begin{small}
+\begin{align*}
+ \frac{dA}{dt} &=\mu NA- \frac{a_{AX}AX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D} - d_{A}A- e_{A}A  
+\\[2em]
+ \frac{dN}{dt} &= I_{N} +
+ \frac{(1-\delta_{AX})a_{AX}\gamma_{AX}AX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D}
+ +
+ \frac{(1-\delta_{DX})\gamma_{DX}a_{DX}DX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D}+
+ mD -\mu NA- e_{N}N
+\\[2em]
+ \frac{dD}{dt} &= I_{D} +
+ \frac{(1-\gamma_{AX})a_{AX}AX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D} -
+ \frac{\gamma_{DX}a_{DX}DX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D} - mD + d_{A}A +
+ d_{X}X - e_{D}D
+\\[2em]
+ \frac{dX}{dt} &=
+ \frac{a_{AX}\gamma_{AX}\delta_{AX}AX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D} +
+ \frac{a_{DX}\gamma_{DX}\delta_{DX}DX}{1+a_{AX}h_{AX}A+a_{DX}h_{DX}D}- d_{X}X - e_{X}X
+\end{align*}
+\end{small}
+% If you want eqns numbered try:
+% \begin{equation}
+% \frac{dA}{dt} = mNA - a_{AX}AX - dA_{A}A- e_{A}A  
+% \\end{equation}
+
+\noindent The model simplifies to pure detritivory when the attack rate
+of the consumer on autotrophs (\(a_{AX}\)) is
+set to zero, and to pure herbivory when the attack rate
+of the consumer on detritus (\(a_{DX}\)) is
+set to zero.
+
+\indent We defined parameters for the model (Table 1) for two of our
+four system types, freshwater and
+terrestrial. These systems are distinctly different endpoints along a
+continuum, varying in key attributes that may be important to how
+multi-channel feeding affects web stability. Specifically, freshwater systems
+tend to have smaller standing stocks of all pools, higher quality
+detritus, and faster nutrient cycling as compared to terrestrial
+systems \citep{Cebrian:2004}. We used a Type II functional response for realism and because Type I functional responses did not allow analytical solutions (due to the nutrient recycling and omnivory aspects of the model).
+\\ 
+\indent We designed the equations to be in
+expressed in units of the most limiting nutrient (here, \(gN m^{-2}  y^{-1}\)
+for a terrestrial system and \(\mu gP L^{-1}
+d^{-1}\) for a freshwater system). We used literature values from grassland
+systems and North American temperate lakes and background knowledge to
+develop possible ranges for each parameter (Table 1), then explored
+parameter space around
+these ranges. While some studies have found higher quality detritus in aquatic systems result in higher assimilation and production efficiencies compared to terrestrial systems \citep{Cebrian:2004,Cebrian:2009hg}, our values do not reveal such a pattern. 
+
+\\
+\indent We ran separate sets of 100,000 simulations to randomly explore both
+terrestrial and freshwater parameter space for the three models: multi-channel feeding (consumption of both detritus and autotrophs by the consumer), detritivory-only, and herbivory only. For each simulation we generated random
+parameter sets within uniform distributions between our
+minimum and maximum values (Table 1), allowing an examination of a
+large parameter space. For each parameter set, we calculated the equilibrium
+and assessed whether it was feasible \citep[i.e., all pools had positive
+equilibrium values, \emph{sensu}][]{roberts1974}. For systems
+with feasible equilibria, we calculated dominant eigenvalues and then used
+them to estimate stability (whether the system will return to the
+equilibrium if disturbed) and resilience (the rate of recovery)
+following classical procedures \citep{May:1973}. While the ecological literature is rife
+with definitions and calculations of stability \citep{Grimm:1997},
+we chose to use classical procedures
+because the dominant eigenvalue has both a clear theoretical definition (that is easily
+measurable in the model) and a relationship to empirical
+measurements of system's response to perturbation
+\citep{Cottingham:1994,Jorgensen:2000}.
+\\
+\indent We further explored the effect of multi-channel feeding on food web stability by
+examining in more detail how system return times
+changed with attack rates on the autotroph and detrital pools. We
+focused on attack rates because they allowed us to vary how strongly
+the omnivore fed on one resource or the other. For
+this we used one parameter set for each system type (Table 1), chosen because it
+was realistic biologically; results were robust to the choice
+of external input rates for both the nutrient and detrital pools. All
+model simulations were done in Mathematica 7.0 (Wolfram Research, Inc.) and
+analyzed in R 2.12.0.
+%Lizzie: edit above as needed.
+\\
+\\
+\emph{Results}\\
+\\
+\indent Our models suggest that the degree to which multi-channel feeding affects system stability and return time depends on the system type
+(terrestrial or freshwater) and the rates at which omnivores attack living
+autotrophs versus detritus. In both system types, models with multi-channel feeding produced fewer parameter sets generating stable models compared to models without such omnivory (Table 2, comparisons to herbivory- and detritivory-only models). 
+\newline
+\indent The effect of multi-channel feeding on system resilience varied by system type. In terrestrial systems, multi-channel feeding tended to produce systems with
+intermediate resilience between the least resilient detritivory-only
+models and the most-resilient pure-herbivory models. Additionally, in terrestrial
+systems multi-channel feeding produced only a small
+de-stabilizing effect. For freshwater systems, however, the
+destabilizing effect was far greater (Table 2). In freshwater parameter sets with equilibria, 
+multi-channel feeding generally produced less resilient systems, compared to models without multi-channel feeding. Return times in models with multi-channel feeding were twice as high as herbivory-only models (which tended to produce systems with the fastest return times) and 50\% higher than detritivory-only models (Table 2). 
+\newline
+\indent Across both terrestrial and freshwater parameter space, multi-channel feeding was
+destabilizing at high attack rates on the autotroph (Figure 4a-d), and was
+stabilizing (Figure 4b, 4d, terrestrial) or had no effect (Figure 4a, 4c,
+freshwater) at low attack rates on the autotroph. When the omnivore
+attacked autotrophs at a high rate, the attack rate on
+detritus had to be comparatively much lower to produce a stable system
+(Figure 4a-d). In models with multi-channel feeding---across both system types---the transition from a stable to unstable system with higher attack rates resulted from system dynamics entering limit cycles, not from the extinction of any pool. 
+\\
+\\
+\noindent {\bf Discussion}\\
+\\
+\indent Across 23 food webs and four ecosystem types, we found that most
+consumers were multi-channel consumers---deriving their diets from both
+autotrophs and detritus, especially at the top of the food
+web. The majority of multi-channel consumers, however, occurred as primary
+consumers, indicating most taxa at the herbivore/detritivore level
+are more aptly described as multi-channel consumers. Moreover, our models show that
+multi-channel feeding---though generally destabilizing when simplistically compared to herbivory- or detritivory-only models---can be stabilizing, when occurring with low attack
+rates on autotrophs (Figure 4). 
+\\
+\\
+\noindent \emph{Prevalence and position of multi-channel consumers in empirical webs}\\
+\\
+\indent 
+Past research has routinely suggested that multi-channel feeding and detrital
+resources may be both more common and more important in
+terrestrial compared to aquatic ecosystems \citep{Polis:1996}.  In
+contrast, we found that multi-channel feeding is as common in
+freshwater lakes and oceanic shelves dominated by pelagic species as
+in terrestrial systems. Consumers in all four system types derived substantial amounts of energy from both autotroph
+and detrital channels. This challenges the traditional view that food
+webs can be abstracted into simple grazing channels of plants,
+herbivores and predators \citep{Holt:2006,  Pimm:1982}, and
+suggests that the real world is far messier, echoing recent work on 
+intraguild predation \citep{Rudolf:2007,miller2011}. While
+our 23 food webs are still a small sample, our results
+suggest that current webs capture highly connected systems. Grazing
+chains exist only as one part of webs heavily subsidized by widespread
+consumer interactions with the detrital web \citep{Moore:2004}. Thus, while our modeling work showed detritivory-only or herbivory-only systems may be the most stable (Table 2), our empirical web findings suggest that such systems are highly unrealistic.
+\\
+\\
+\noindent \emph{Stability \& multi-channel feeding in modeled webs}\\
+\\
+\indent Our modeling results show that integration between the brown and
+green worlds may stabilize food webs under certain conditions. 
+Using a simple food web model with nutrient cycling and considering stability as assessed by return times calculated from the
+dominant eigenvalue, we found models with multi-channel feeding often produced
+stable webs. Such models, however, produced generally the fewest stable systems, compared to detritivory-only models, which produced only stable systems, and herbivory-only systems (Table 2). While return times were higher for multi-channel consumer models compared to herbivory-only, we found that multi-channel feeding could have a stabilizing effect in both terrestrial and freshwater parameter sets, even without the stabilizing forces of
+predator-switching often used in other models that introduce this sort of omnivory
+\citep{Rooney:2006}. In particular, we found high attack rates on
+both autotrophs and detritus led to highly unstable systems, however, multi-channel feeding was stabilizing at low to moderate attack rates on autotrophs.(Figure 4).
+\\
+\indent We noted, however, distinct differences in the effects of multi-channel feeding on
+the stability of terrestrial versus freshwater systems, suggesting that
+multi-channel feeding may be generally more stabilizing in terrestrial
+systems. Terrestrial systems with multi-channel feeding had return times of intermediate length compared to detritivory and herbivory-only models (Table 2) and showed a peak in stabilizing effects when multi-channel feeders attacked detritus at a low rate (Figure 4b, 4d). In contrast, modeled freshwater systems with multi-channel feeding produced longer return times and showed a larger range of parameter space in which detrital feeding by multi-channel feeding destabilized systems (Figure 4a, 4c). While this may initially seems incongruous with our finding that
+multi-channel consumers are equally common across all ecosystem types,
+our modeling results suggest that the 
+key difference lies in attack rates between systems. Both systems
+can be stable with multi-channel consumers and high attack rates on
+detritus, provided attack rates on
+autotrophs remain low.
+\\
+\\
+\noindent \emph{Integrating results from empirical and modeled food webs}\\
+\\
+\indent Combining our model
+predictions with empirical food web data indicates that while
+multi-channel consumers in real webs may tend to consume a highly mixed
+diet (Figures 1-2), the key for system stability may lie in asymmetric
+attack rates. Thus, our results may unite the findings that (1) multi-channel feeding can be
+stabilizing when weak \citep{McCann:1998} and (2) prey preferences of predators that link food chains affect stability \citep{Post:2000xx}, but also that (3) stable systems have omnivores
+which balance their resource needs across dichotomous resource
+channels \citep{Rooney:2006}. Dichotomous resource channels can be
+critical to stability by allowing multiple pathways and rates of
+energy flow through webs. Variation in how dichotomous 
+the relative rates of these two channels are may explain differences between
+our terrestrial and freshwater parameterized models (Figure 4). Freshwater systems
+tend to have higher quality (C:N or C:P) living autotrophs, with
+resulting stronger herbivory and faster turnover
+times compared to terrestrial systems, while detritus in freshwater
+systems is often highly allochthonous, derived from the lower
+quality plant materials of terrestrial systems
+\citep{Cebrian:2004}. Thus, the high ratio of edibility of
+autotrophs versus detritus in freshwater
+systems may produce greater asymmetry in the attack rates of
+omnivores: across systems this relative ratio of edibility between the brown
+and green webs may be key to predicting the relative asymmetry of attack rates.
+\\
+\indent Our prediction of trade-offs between attack rates on autotrophs versus
+detritus calls for improved data to more 
+carefully estimate interactions between
+consumers and detrital resources, especially nutrient transfers. Testing our model predictions requires field estimates of
+attack rates---especially on detrital resources; particularly
+insightful may be data from 
+open-water systems where autotrophs, consumers and detritus are all
+mobile, and from systems that vary in the quality of their green versus brown
+basal resources. Further, improved
+estimates of the pool sizes of detritus may be required to calculate accurate attack rates; many webs estimate only a single pool of
+detritus, while consumers may view and attack detrital pools of varying quality quite differently \citep{Wilson:2011qo}.
+\\
+\newline
+\noindent \emph{Conclusions:} Our results echo continued work demonstrating the importance
+of detritus to structuring food webs
+\citep{Allesina:2009,Odum:1984}. Further, while community ecology has generally
+conceptualized grazing and detrital webs as separate
+\citep{Moore:2004}, our results, combined with increasing empirical
+and theoretical work \citep{Anderson:2008, Vadeboncoeur:2005,
+ Moore:1988,Blanchard:2011}, suggest consumers across ecosystems ignore this
+distinction, drawing resources from both the brown and green
+worlds. Our
+findings demonstrate that key differences among ecosystems in the effects of multi-channel feeding on stability
+and the rates of attack on autotrophs may affect trophic structure. Such differences could affect the flow of nutrients in food webs and webs' dynamical structure, with cascading community  and ecosystem consequences.\\
+
+% We found support for our model prediction--in all webs considered attack rates on autotrophs varied highly but attack rates on detritus were generally low in comparison (Figure 4).
+
+% While multi-channel omnivores appear common in many food webs (Odum and Biever 1984; Pimm 1982) community ecology has generally conceptualized grazing and detrital webs as separate (Moore et al. 2004) and focused most research on grazing webs, although research has continually highlighted the critical role of detritus in food webs (Allesina and Pascual 2009; DeAngelis 1992; Polis and Hurd 1996). This is especially surprising given that detritus-free grazing webs are generally unfeasible because detrital pathways recycle system nutrients (Heal and MacLean 1975) while there are many webs based solely on detritus (Burkepile et al. 2006; Polis and Hurd 1996; Wallace et al. 1997). Even in webs with robust grazing webs, most net productivity is usually shunted to the detrital web (Odum and Biever 1984; Polis and Hurd 1996) further suggesting the role of detrital pathways in food webs must be key (Post 2002).
+
+% Together our findings indicate that connections between grazing and detrital-based webs are a common and critical component to food webs.
+\\
+\newpage
+\noindent {\bf Acknowledgments}\\
+\noindent Comments from two anonymous reviewers and S. Diehl greatly
+improved the manuscript, for which we are thankful. We also thank J. Dunne and M. Scotti for sharing
+food web data and M. O'Connor for reviewing an earlier version of this
+manuscript. This work was conducted in part with the Trophic
+Structure Comparisons Working Group supported by the National Center
+for Ecological Analysis and Synthesis, a Center funded by NSF (Grant
+DEB-0072909), the University of California at Santa Barbara, and the
+state of California, and in part conducted while EMW was an EPA STAR
+Fellow and an NSF Postdoctoral Research Fellow in Biology (Grant DBI-0905806), and also while she was supported by the NSERC CREATE training program in biodiversity research.
+
+
+\newpage
+\bibliography{/Users/Lizzie/Documents/EndnoteRelated/Bibtex/LizzieMainMinimal}
+\bibliographystyle{/Users/Lizzie/Documents/EndnoteRelated/Bibtex/styles/amnat}
+\newpage
+% \newgeometry{a4paper, landscape}
+%\renewcommand{\familydefault}{\sfdefault}
+\noindent \textbf{Table 1:} Parameter values used for four-compartment
+nutrient cycling model. An extended version of this table including literature values
+and references for all parameters is given in the supplementary
+material (Appendix C).
+\begin{center}
+{\footnotesize 
+  \begin{tabular}{ | p{1.5cm} |  p{4cm} | p{4.7cm} || p{4.7cm} | }   
+\hline \hline
+& & Terrestrial Parameters & Freshwater Parameters \\ \hline
+\end{tabular}
+
+  \begin{tabular}{ | p{1.5cm} |  p{4cm} | p{1.75cm} | p{2.5cm} || p{2.25cm} | p{2cm} | }  
+\hline 
+Parameter & Description & Units  & Values evaluated* & Units & Values evaluated* \\ \hline \hline
+
+\(I_{N}\) & inputs to nutrient pool & \(gNm^{-2}y^{-1}\) & 0.05-10 (0.5) & \(\mu gPL^{-1}d^{-1}\) & 0.001-10 (0.5)\\ \hline
+
+\(I_{D}\) & inputs to detrital pool & \(gNm^{-2}y^{-1}\) & 0.5-20 (1.5)& \(ugPL^{-1}d^{-1}\)  & 0.00005-5 (0.01) \\\hline
+
+\(e_{N}\) &loss rate of inorganic nutrient&\(y^{-1}\) & 	0.005-1.5 (0.01) &	\(d^{-1}\)	&  0.00001-1 (0.05)\\\hline
+
+\(e_{A}\) & loss rate of autotrophs & \(y^{-1}\)&  0.005-1.5 (0.05) & \(d^{-1}\) & 0.00001-1 (0.05)\\\hline
+
+\(e_{D}\) & loss rate of detritus & \(y^{-1}\) & 0.005-1.5 (0.01) & \(d^{-1}\)  & 0.00001-1 (0.05)\\\hline
+
+\(e_{X}\) & loss rate of consumers & \(y^{-1}\)  & 0.001-1.5 (0.1) & \(d^{-1}\) & 0.00001-1 (0.05)\\\hline
+
+\(\mu\) & uptake rate of nutrients by plants & \(m^2y^{-1}g^{-1}\) & 0.5-10 (3) & \(d^{-1}\)  & 0.0001-5 (0.5)\\\hline
+
+\(d_{A}\) & death + metabolic rate of autotrophs & \(y^{-1}\)  & 0.001-4 (0.02) & \(d^{-1}\)  & 0.0001-1 (0.01)\\\hline
+
+\(d_{X}\) & death + metabolic rate of consumers & \(y^{-1}\) & 0.001-5 (0.01) & \(d^{-1}\) & 0.0001-1 (0.05)\\\hline
+
+\(\gamma_{AX}\) & assimilation efficiency  feeding on autotrophs & unitless & 0.2-0.9 (0.3) & unitless   & 0.1-0.9 (0.5)\\\hline
+
+\(\gamma_{DX}\) & assimilation efficiency  feeding on detritus & unitless & 0.2-0.9 (0.5) & unitless &  0.1-0.9 (0.5)\\\hline
+
+\(\delta_{AX}\) & production efficiency  feeding on autotrophs & unitless & 0.3-0.7 (0.35) & unitless   & 0.3-0.7 (0.4)\\\hline
+
+\(\delta_{DX}\) & production efficiency feeding on detritus & unitless &  0.3-0.7 (0.5) & unitless &  0.2-0.9 (0.4)\\\hline
+
+\(a_{AX}\) & attack rate  on autotrophs & \(m^{2}y^{-1}g^{-1}\) & 0.05-5 (1.5) & \(\mu gP^{-1}L^{-1}d^{-1}\) &  0.0001-6 (0.1)\\\hline
+
+\(a_{DX}\) & attack rate on detritus & \(m^{2}y^{-1}g^{-1}\) & 0.05-5 (varied) & \(\mu gP^{-1}L^{-1}d^{-1}\) & 0.0001-6 (varied)\\\hline
+
+\(m\) & detritus mineralization rate & \(y^{-1}\) & 0.3-10 (1.5) & \(d^{-1}\) &  0.001-5 (0.05)\\
+  \hline
+\(h_{AX}\) & handling time on autotrophs & \(y\) & 0.0000001-1 (0.1) &
+\(d\) & 0.01-100 (0.1)\\
+  \hline
+\(h_{DX}\) & handling time on detritus & \(y\) & 0.0000001-1 (0.1) &
+\(d\) &  0.01-200 (0.1)\\
+  \hline
+  \end{tabular}}
+\end{center}
+
+\noindent {\footnotesize * Values evaluated give the range examined for most results, then parenthetically the value used to test sensitivity to attack rates.}
+
+\newpage
+\noindent \textbf{Table 2:} Parameter search results. We give the percent of systems with negative critical eigenvalues (\% stable systems) and their mean return time for freshwater and terrestrial parameter sets.
+\begin{center}
+{\footnotesize 
+  \begin{tabular}{| p{4.5cm} | p{2cm}  p{2cm} || p{2cm} p{2cm} |  }   
+\hline \hline
+ & Freshwater & & Terrestrial  &\\ \hline
+\end{tabular}
+  \begin{tabular}{ | p{4.5cm} |  p{2cm} | p{2cm} || p{2cm} | p{2cm} | }   
+\hline \hline
+ & \% stable systems & mean return time & \% stable systems & mean return time \\ \hline
+Detritivory-only model & 100\% & 5.0 & 100\% & 2.6 \\ \hline
+Herbivory-only model & 54.5\% & 3.5 & 80.8\% & 1.9\\ \hline
+Multi-channel feeding model & 45.8\% & 7.5 & 71.6\% & 2.4 \\ \hline
+\end{tabular}}
+\end{center}
+
+% \restoregeometry
+
+\newpage
+\noindent {\bf Figure Legends}\\
+
+\\
+\noindent {\bf Figure 1}: All 23 food webs we examined were based on
+both detritus (trophic level=1 and diet=0) and living autotrophs
+(trophic level=1 and diet=1). Contrary to expectations, there were
+many taxa at the second trophic level that mixed their diet between
+detrital and living autotroph derived resources. \\
+\\
+\noindent {\bf Figure 2}: Data from 23 food webs support the
+hypothesis that higher trophic levels have less specialized
+(more omnivorous) diets than lower trophic levels. Trophic level, on
+the x-axis, starts at 2 (since trophic level 1 is constrained to be
+detritus or living autotrophs) and diet-distance is on the y axis
+(where 0 is eating 50\% from the brown web and 50\% from the green web, and 0.5 is
+eating completely from either the detrital or autotroph-based
+resources). Lines represent fits from the mixed-effect model presented
+in the text.\\
+\\
+\noindent {\bf Figure 3}: To examine how multi-channel feeding may
+affect food web stability we used a four-compartment nutrient recycling
+model that varied whether or not the consumer ate detritus (thick dashed
+arrow). Thick black arrows represent internal flows, while thick gray arrows
+represent inputs and outputs; thinner arrows show flows
+to the detrital pool via death (undashed gray) and sloppy feeding (undashed black) and to the nutrient
+pool via excretion (dashed). \\
+
+\noindent {\bf Figure 4}: Contour plot of return times
+ depending on attack rates on autotrophs 
+versus attack rates on detritus by a multi-channel consumer within freshwater (a and c)
+and terrestrial (b and d) parameter sets (parameter values given in Table 1). 
+Contour lines show return times; the shaded gray areas represent parameter space where systems were unstable while white areas represent parameter space where systems were
+stable. Areas with diagonal red dots represents parameter space where
+multi-channel feeding is stabilizing (versus destabilizing) compared to a herbivory-only (a-b) or a detritivory-only model (c-d).\\
+
+\newpage
+\noindent {\bf Figure 1}
+\\
+\begin{figure}[h!]
+\centering
+\noindent \includegraphics[width=1.1\textwidth]{/Users/Lizzie/Documents/Professional/NCEAS/Manuscripts/Brown_Green_Omnivory/Figures/Fig1_BG1_Systems.png}
+\end{figure}
+
+\newpage
+\noindent {\bf Figure 2}
+\\
+\begin{figure}[h!]
+\centering
+\noindent \includegraphics[width=.9\textwidth]{/Users/Lizzie/Documents/Professional/NCEAS/Manuscripts/Brown_Green_Omnivory/Figures/Fig2_BG1_5050.png}
+\end{figure}
+
+\newpage
+\noindent {\bf Figure 3}
+\\
+\begin{figure}[h!]
+\centering
+\noindent \includegraphics[width=.5\textwidth]{/Users/Lizzie/Documents/Professional/NCEAS/Manuscripts/Brown_Green_Omnivory/Figures/ModelDiagram/BrGr_ModDiagram_Full.png}
+\end{figure}
+
+\newpage
+\noindent {\bf Figure 4}
+\\
+\begin{figure}[h!]
+\centering
+\noindent \includegraphics[width=1\textwidth]{/Users/Lizzie/Documents/Professional/NCEAS/Manuscripts/Brown_Green_Omnivory/Figures/Fig3_contours_combinedwshading.png}
+\end{figure}
+
+
+
+
+
+\end{document}
+
+% Edited chunks:
+
+% at low attack rate on the autotrophs they are probably near-starving and a second food source stabilises the system.
+
+% Additionally, under the terrestrial parameter set stability increased initially as attack rates on autotrophs increase;
+
+% My version: this is because at very low consumer attack rates on autotrophs, autotrophs slowly exhaust their nutrient pool, extending the time for the system to stabilize, when compared to a system with higher attack rates on autotrophs. In this latter case, autotrophs are controlled by both their nutrient pool and attack rates by the omnivore. At higher attack rates, stability declines quickly until, at very high attack rates on autotrophs, the system enters permanent oscillations between the predator and autotroph (Fig 3a).
+
+
+
+
+%%% Add some refs from here in, then delete! %%%
+\indent The prevalence of omnivory in real systems and its effects on stability
+have been areas of active debate among food web researchers for
+decades \citep{McCann:1997, Pimm:1982, Polis:1991}. While early
+work suggested omnivory should be highly destabilizing and thus rare
+\citep{Pimm:1982}, empirical food webs studies have shown it is present in all
+systems \citep{Thompson:2007}, and rampant in some terrestrial
+\citep{Polis:1991} and marine systems
+\citep{Pinnegar:2000}. Similarly, theory has shown that omnivory may stabilize or
+destabilize systems depending on the web structure
+\citep{Vandermeer:2006} and that it can be a stabilizing force when
+weak \citep{McCann:1998} or when it couples fast and
+slow energy sources \citep{Rooney:2006}.
+\\
