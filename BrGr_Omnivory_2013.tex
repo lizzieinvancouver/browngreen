@@ -154,12 +154,10 @@ their sources, is given in Appendix A.
 \indent We estimated the trophic level
 and diet specificity for each consumer taxon in each web. We computed the trophic
 level according to the flow
-information \citep{Levine:1980} when present. For binary food webs,
-we created a fractional diet matrix by assigning
-to each of the \(X\) consumers of a given resource the same fraction
-\(\varepsilon/X\) of the flow originating from the resource, where
-\(\varepsilon\) is the efficiency of transformation. Using this
-matrix, we then computed the trophic level as we did for the
+information \citep{Levine:1980} when present. In brief, we first constructed for each web an \(N \times N\) matrix (\(M\)) where \(M_{ij}\) represents the flow from species \(i\) to \(j\). From this we constructed \(L\), an  \(N-1 \times N-1\) matrix obtained by deleting the last row and column of \(M\), which represent flows to and from detritus. Trophic level of species \(i\) is thus given as \(i\)th column sum of \((I-L')^{-1}\) where \(L'\) is the matrix obtained from dividing each element of \(L\) by the corresponding column sum. For binary food webs,
+we began by assuming that each of the \(X\) consumers of a given resource receives the same fraction
+\(\varepsilon/X\) of the flow originating from the resource (where \(\varepsilon\) is the efficiency of transformation) and that all plants received an equal input from detritus. We constructed from an adjacency matrix (\(A\)) \(A'\) such that each row sums to the efficiency of transformation (\(\varepsilon\)). We added one column of \(1-\varepsilon\) for all species except top predators which were given a value of 1. The resulting matrix is a stochastic matrix, and therefore has a dominant eigenvalue of 1, and a dominant eigenvector that is positive (Perron-Frobenius theorem). The eigenvector is the ``PageRank'' \citep{Allesina:2009}, representing the total amount flowing through the node. 
+We then obtained \(M\) by multiplying the elements of \(A'\) for the corresponding PageRank and computed the trophic level as explained for the
 flow-based food webs. For the figures reported here, we chose
 \(\varepsilon=0.15\), but our analysis is not sensitive to the
 particular value chosen for the efficiency of transformation (Appendix
