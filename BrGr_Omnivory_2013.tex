@@ -66,8 +66,8 @@ estimate trophic level and diet.
 \linenumbers
 \modulolinenumbers[2]
 
-\noindent {\bf Abstract}\\
-\noindent Recent advances in food web ecology highlight that most real food webs (1) represent an interplay between producer and detritus-based webs and, (2) are governed by consumers which are rampant omnivores. A possible avenue to unify these advances comes from models demonstrating that predators feeding on distinctly
+\noindent {\bf Abstract: 200 words exactly}\\
+\noindent Recent advances in food web ecology highlight that most real food webs represent an interplay between producer and detritus-based webs and are governed by consumers which are rampant omnivores. A possible avenue to unify these advances comes from models demonstrating that predators feeding on distinctly
 different channels may stabilize food webs. Empirical studies suggest many consumers engage in such behavior by feeding on prey items from both living-autotroph (green) and
 detritus-based (brown) webs---what we term `multi-channel feeding'---but we know little about how common such feeding is across systems and trophic levels and its effect on system stability. Considering 23 empirical webs, we find that multi-channel feeding
 is equally common across terrestrial, freshwater and marine systems and occurs most often
@@ -76,11 +76,11 @@ developed a simple four-compartment nutrient cycling model for consumers
 eating autotrophs and detritus, which showed that---across terrestrial and aquatic ecosystems---multi-channel feeding is
 stabilizing at low attack rates on autotrophs, but destabilizing at high attack rates on autotrophs, compared to herbivory- or detritivory-only models. Together our results demonstrate that multi-channel feeding is common across ecosystems and may be a
 stabilizing force in real webs that have consumers with asymmetric attack rates.
-
-% Bring back if have more that 200 words someday:
+% Bring back if have more that 200 words someday -- I have pasted the 200 word abstract at the end of the tex file
 % [INSERT after -only models.] However, the set of conditions for stable webs with multi-channel consumers is narrower for aquatic systems.
 % [INSERT after rampant omnivores. ] ---feeding on varied prey across trophic levels and resource channels
-
+% Ecology Letters: 150 words for Letter in abstract. Letters: maximum of 5000 words in length (main text), 6 figures, tables or boxes, and 50 references.
+% Ecology: A report is 20 ms pages (TOTAL) and 200 word abstract; so we'll do an article, which is a 350 word abstract and 20-30 ms pages.
 
 \pagebreak
 \noindent {\bf Introduction}\\
@@ -154,10 +154,9 @@ their sources, is given in Appendix A.
 \indent We estimated the trophic level
 and diet specificity for each consumer taxon in each web. We computed the trophic
 level according to the flow
-information \citep{Levine:1980} when present. In brief, we first constructed for each web an \(N \times N\) matrix (\(M\)) where \(M_{ij}\) represents the flow from species \(i\) to \(j\). From this we constructed \(L\), an  \(N-1 \times N-1\) matrix obtained by deleting the last row and column of \(M\), which represent flows to and from detritus. Trophic level of species \(i\) is thus given as \(i\)th column sum of \((I-L')^{-1}\) where \(L'\) is the matrix obtained from dividing each element of \(L\) by the corresponding column sum. For binary food webs,
+information \citep{Levine:1980} when present. For binary food webs,
 we began by assuming that each of the \(X\) consumers of a given resource receives the same fraction
-\(\varepsilon/X\) of the flow originating from the resource (where \(\varepsilon\) is the efficiency of transformation) and that all plants received an equal input from detritus. We constructed from an adjacency matrix (\(A\)) \(A'\) such that each row sums to the efficiency of transformation (\(\varepsilon\)). We added one column of \(1-\varepsilon\) for all species except top predators which were given a value of 1. The resulting matrix is a stochastic matrix, and therefore has a dominant eigenvalue of 1, and a dominant eigenvector that is positive (Perron-Frobenius theorem). The eigenvector is the ``PageRank'' \citep{Allesina:2009}, representing the total amount flowing through the node. 
-We then obtained \(M\) by multiplying the elements of \(A'\) for the corresponding PageRank and computed the trophic level as explained for the
+\(\varepsilon/X\) of the flow originating from the resource (where \(\varepsilon\) is the efficiency of transformation) and that all plants received an equal input from detritus. We constructed from an adjacency matrix (\(A\)) \(A'\) such that each row sums to the efficiency of transformation (\(\varepsilon\)). We added one column of \(1-\varepsilon\) for all species except top predators which were given a value of 1. The eigenvector of the resulting matrix is the ``PageRank'' \citep{Allesina:2009}, representing the total amount flowing through the node. With this information we then computed the trophic level as for the
 flow-based food webs. For the figures reported here, we chose
 \(\varepsilon=0.15\), but our analysis is not sensitive to the
 particular value chosen for the efficiency of transformation (Appendix
@@ -396,21 +395,20 @@ consumer interactions with the detrital web \citep{Moore:2004}. Thus, while our 
 \noindent \emph{Stability \& multi-channel feeding in modeled webs}\\
 \\
 \indent Our modeling results show that integration between the brown and
-green worlds may stabilize food webs under certain conditions. 
+green worlds may stabilize food webs, but only under certain conditions. 
 Using a simple food web model with nutrient cycling and considering stability as assessed by return times calculated from the
 dominant eigenvalue, we found models with multi-channel feeding often produced
 stable webs. Such models, however, produced the fewest stable systems (\(<50\%\)); in contrast, herbivory-only systems were consistently more stable (\(54.5\%\) of cases), and all of the detritivory-only models were stable (Table 2). While return times were higher for multi-channel consumer models compared to herbivory-only models, we found that multi-channel feeding could have a stabilizing effect in both terrestrial and freshwater parameter sets, even without the stabilizing forces of
 predator-switching often used in other models that introduce this sort of omnivory
-\citep{Rooney:2006}. In particular, we found high attack rates on
-both autotrophs and detritus led to highly unstable systems, however, multi-channel feeding was stabilizing at low to moderate attack rates on autotrophs.(Figure 4).
+\citep{Rooney:2006}. In particular, we found multi-channel feeding was stabilizing at low to moderate attack rates on autotrophs, however, high attack rates on both autotrophs and detritus led to highly unstable systems (Figure 4).
 \\
 \indent We noted, however, distinct differences in the effects of multi-channel feeding on
 the stability of terrestrial versus freshwater systems, suggesting that
 multi-channel feeding may be generally more stabilizing in terrestrial
-systems. Terrestrial systems with multi-channel feeding had return times of intermediate length compared to detritivory and herbivory-only models (Table 2) and showed a peak in stabilizing effects when multi-channel feeders attacked detritus at a low rate (Figure 4b, 4d). In contrast, modeled freshwater systems with multi-channel feeding produced longer return times and showed a larger range of parameter space in which detrital feeding by multi-channel feeding destabilized systems (Figure 4a, 4c). While this may initially seems incongruous with our finding that
+systems. Terrestrial systems with multi-channel feeding had return times of intermediate length compared to detritivory and herbivory-only models (Table 2) and showed a peak in stabilizing effects when multi-channel feeders attacked detritus at a low rate (Figure 4b, 4d). In contrast, modeled freshwater systems with multi-channel feeding produced longer return times and showed a larger range of parameter space in which detrital feeding by multi-channel feeding destabilized systems (Figure 4a, 4c). While this may initially seem incongruous with our finding that
 multi-channel consumers are equally common across all ecosystem types,
 our modeling results suggest that the 
-key difference lies in attack rates between systems. Both systems
+key difference may lie in attack rates between systems. Both systems
 can be stable with multi-channel consumers and high attack rates on
 detritus, provided attack rates on
 autotrophs remain low.
@@ -421,8 +419,8 @@ autotrophs remain low.
 \indent Combining our model
 predictions with empirical food web data indicates that while
 multi-channel consumers in real webs tend to consume a highly mixed
-diet (Figures 1-2), the key for system stability lies in asymmetric
-attack rates. Thus, our results integrate the findings that (1) multi-channel feeding can be
+diet (Figures 1-2), a key for system stability may be asymmetric
+attack rates across resource channels. Thus, our results integrate the findings that (1) multi-channel feeding can be
 stabilizing when weak \citep{McCann:1998} and (2) prey preferences of predators that link food chains affect stability \citep{Post:2000xx}, but also that (3) stable systems have omnivores
 which balance their resource needs across dichotomous resource
 channels \citep{Rooney:2006}. Dichotomous resource channels can be
@@ -474,16 +472,15 @@ and the rates of attack on autotrophs may affect trophic structure. Such differe
 \\
 \newpage
 \noindent {\bf Acknowledgments}\\
-\noindent Comments from two anonymous reviewers and S. Diehl greatly
-improved the manuscript, for which we are thankful. We also thank J. Dunne and M. Scotti for sharing
-food web data and M. O'Connor for reviewing an earlier version of this
+\noindent We also thank J. Dunne and M. Scotti for sharing
+food web data and M. O'Connor and S. Diehl for reviewing an earlier version of this
 manuscript. This work was conducted in part with the Trophic
 Structure Comparisons Working Group supported by the National Center
 for Ecological Analysis and Synthesis, a Center funded by NSF (Grant
 DEB-0072909), the University of California at Santa Barbara, and the
 state of California, in part conducted through the The Centre for Biodiversity Theory and Modelling which is supported by the TULIP Laboratory of Excellence (ANR-10-LABX-41), and in part conducted while EMW was an EPA STAR
 Fellow and an NSF Postdoctoral Research Fellow in Biology (Grant DBI-0905806), and also while she was supported by the NSERC CREATE training program in biodiversity research. Support for CDM came from 
-
+% ADD IN: Comments from two anonymous reviewers greatly improved the manuscript, for which we are thankful. 
 
 \newpage
 \bibliography{/Users/Lizzie/Documents/EndnoteRelated/Bibtex/LizzieMainMinimal}
@@ -633,8 +630,41 @@ multi-channel feeding is stabilizing (versus destabilizing) compared to a herbiv
 \\
 \begin{figure}[h!]
 \centering
-\noindent \includegraphics[width=1\textwidth]{/Users/Lizzie/Documents/Professional/NCEAS/Manuscripts/Brown_Green_Omnivory/Figures/Fig3_contours_combinedwshading.png}
+\noindent \includegraphics[width=1\textwidth]{/Users/Lizzie/Documents/Professional/NCEAS/Manuscripts/Brown_Green_Omnivory/Figures/Fig4_contours_combinedwshading.png}
 \end{figure}
 
 
 \end{document}
+
+
+% Methods about flow and trophic level:
+
+% 19 June 2013
+We estimated the trophic level and diet specificity for each consumer taxon in
+each web. We computed the trophic level according to the 
+ow information \citep{Levine:1980} when present. For binary food webs, we created a fractional diet matrix by
+assigning to each of the \(X\) consumers of a given resource the same fraction \(\varepsilon/X\) of the 
+ow originating from the resource, where " is the effciency of transformation.
+Using this matrix, we then computed the trophic level as we did for the 
+ow-based food webs. For the figures reported here, we chose " = 0:15, but our analysis is not
+sensitive to the particular value chosen for the effciency of transformation (Appendix B). For living autotrophs and detritus we assigned a trophic level of 1.
+
+% 9 July 2013
+We estimated the trophic level
+and diet specificity for each consumer taxon in each web. We computed the trophic
+level according to the flow
+information \citep{Levine:1980} when present. In brief, we first constructed for each web an \(N \times N\) matrix (\(M\)) where \(M_{ij}\) represents the flow from species \(i\) to \(j\). From this we constructed \(L\), an  \(N-1 \times N-1\) matrix obtained by deleting the last row and column of \(M\), which represent flows to and from detritus. Trophic level of species \(i\) is thus given as \(i\)th column sum of \((I-L')^{-1}\) where \(L'\) is the matrix obtained from dividing each element of \(L\) by the corresponding column sum. For binary food webs,
+we began by assuming that each of the \(X\) consumers of a given resource receives the same fraction
+\(\varepsilon/X\) of the flow originating from the resource (where \(\varepsilon\) is the efficiency of transformation) and that all plants received an equal input from detritus. We constructed from an adjacency matrix (\(A\)) \(A'\) such that each row sums to the efficiency of transformation (\(\varepsilon\)). We added one column of \(1-\varepsilon\) for all species except top predators which were given a value of 1. The resulting matrix is a stochastic matrix, and therefore has a dominant eigenvalue of 1, and a dominant eigenvector that is positive (Perron-Frobenius theorem). The eigenvector is the ``PageRank'' \citep{Allesina:2009}, representing the total amount flowing through the node.  We then obtained \(M\) by multiplying the elements of \(A'\) for the corresponding PageRank and computed the trophic level as explained for the flow-based food webs. 
+
+
+% Abstract as of 10 July 2013 (200 words):
+Recent advances in food web ecology highlight that most real food webs (1) represent an interplay between producer and detritus-based webs and, (2) are governed by consumers which are rampant omnivores. A possible avenue to unify these advances comes from models demonstrating that predators feeding on distinctly
+different channels may stabilize food webs. Empirical studies suggest many consumers engage in such behavior by feeding on prey items from both living-autotroph (green) and
+detritus-based (brown) webs---what we term `multi-channel feeding'---but we know little about how common such feeding is across systems and trophic levels and its effect on system stability. Considering 23 empirical webs, we find that multi-channel feeding
+is equally common across terrestrial, freshwater and marine systems and occurs most often
+among primary consumers.  We next
+developed a simple four-compartment nutrient cycling model for consumers
+eating autotrophs and detritus, which showed that---across terrestrial and aquatic ecosystems---multi-channel feeding is
+stabilizing at low attack rates on autotrophs, but destabilizing at high attack rates on autotrophs, compared to herbivory- or detritivory-only models. Together our results demonstrate that multi-channel feeding is common across ecosystems and may be a
+stabilizing force in real webs that have consumers with asymmetric attack rates.
